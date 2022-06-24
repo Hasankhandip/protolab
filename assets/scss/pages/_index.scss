@@ -1,0 +1,177 @@
+// banner-section css start
+.page-content-wrapper{
+    width: 100%;
+    box-sizing: border-box;
+    float: left;
+clear: both;
+}
+.page-content-left{
+    width: 40%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 1px solid rgba(255,255,255,.2);
+    transition: all .5s ease;
+}
+.page-content-right {
+	width: 60%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.page-content-left-main {
+	padding: 100px 16%;
+	width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-img-wrapper {
+    position: relative;
+	padding: 40px 20px 20px 40px;
+    z-index: 1;
+    &:hover{
+        .banner-img-border-1{
+            border-color:$main-color ;
+        }
+        .banner-img-border-2{
+            border-color:$main-color ;
+        }
+    }
+}
+.banner-img{
+    width: 480px;
+    height: 500px;
+    object-fit: cover;
+    object-position: top center;
+}
+.banner-img-border-1{
+    position: absolute;
+    left: 0;
+    bottom: 20px;
+    right: 0;
+    top: 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #aaaaaa6f;
+    transition: all .5s ease;
+    z-index: -1;
+}
+.banner-img-border-2{
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    right: 20px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #aaaaaa6f;
+    transition: all .5s ease;
+    z-index: -1;
+}
+.banner-section{
+    padding: 100px 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    .container{
+        padding: 0 12%;
+    }
+}
+.banner-top-title{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $main-color;
+    margin-bottom: 50px;
+}
+.banner-title{
+    font-size: 44px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+.banner-subtitle{
+    font-size: 26px;
+    color: #c8c8c8;
+    line-height: 45px;
+    margin-bottom: 45px;
+}
+.banner-signature{
+    font-size: 55px;
+    font-family: $signature-font;
+    color: #e8e8e876;
+    margin-bottom: 50px;
+}
+.banner-img-title-wrapper{
+    padding: 20px 0 10px 0;
+}
+.banner-img-subtitle{
+    font-size: 17px;
+    color: #c8c8c8;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.banner-social {
+	display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+}
+.banner-social-item {
+	margin-right: 18px;
+}
+.banner-social-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	transition:all 0.4s ease;
+    i {
+        font-size: 22px;
+        color: #c8c8c8;
+        transition: 0.4s;
+        &:hover{
+            color: $main-color;
+        }
+    }
+}
+.banner-alert-text{
+    font-size: 18px;
+    position: relative;
+    color: #c8c8c8;
+    margin-left: 25px;
+    &:hover{
+        color: #fff;
+        &::before{
+            background-color: #fff;
+        }
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        background-color: #c8c8c890;
+        width: 100%;
+        height: 1px;
+        transition: all .4s ease;
+    }
+    &::after{
+        content: '';
+        position:absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        background-color: $main-color;
+        left: -25px;
+        top: 50%;
+        margin-top: -5px;
+        display: block;
+    }
+}
+// banner-section css end
