@@ -25,7 +25,10 @@ a {
   display: inline-block;
   text-decoration: none;
   color: #fff;
-  transition: 0.4s;
+  transition:0.4s;
+  &:hover{
+    color: #fff;
+  }
 }
 ul {
   padding-left: 0;

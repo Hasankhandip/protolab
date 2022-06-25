@@ -1,3 +1,120 @@
+// menu-trigger css start
+.page-content-right-area {
+	position: relative;
+}
+.menu-trigger{
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    color: $color-2;
+    &:hover{
+        .menu-bar{
+            span{
+                background-color: #fff;
+            }
+        }
+    }
+}
+.menu-text{
+    font-size: 20px;
+}
+.menu-bar{
+    margin-left: 15px;
+span{
+    width: 35px;
+    height: 2px;
+    display: block;
+    margin-top: 8px;
+    background-color: $color-2;
+    transition: .4s;
+    &:first-child{
+        margin-top: 0;
+    }
+}
+}
+// menu-trigger css end
+
+// navbar-area css start
+.navbar-area{
+    position: fixed;
+    top:0;
+    right: -40%;
+    width: 40%;
+    height: 100vh;
+    background-color: #14161c;
+    z-index: 99;
+    transition: .5s;
+    opacity: 0;
+    &.active{
+        right: 0;
+        opacity: 1;
+    }
+}
+.navbar-inner {
+	position: relative;
+	width: 100%;
+	padding: 150px 16% 100px 16%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+	z-index: 5;
+}
+.navbar-item-link {
+	font-size: 32px;
+    color: $color-2;
+    transition: .4s;
+    transform: translateX(0);
+    opacity: 1;
+    &:hover{
+        color: $main-color;
+    }
+    &.active{
+        font-size: 45px;
+        color: $main-color;
+    }
+}
+.navbar-item {
+	margin-bottom: 15px;
+}
+.navbar-closer{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    border: 1px solid $color-2;
+    &:hover{
+        border-color: $main-color;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $main-color;
+        transform: rotate(-45deg) scale(0.9);
+        transition: .4s;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        top: 20px;
+        right: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $main-color;
+        transform: rotate(45deg) scale(0.9);
+        transition: .4s;
+    }
+}
+// navbar-area css end
+
 // banner-section css start
 .page-content-wrapper{
     width: 100%;
@@ -15,7 +132,6 @@ clear: both;
     left: 0;
     top: 0;
     bottom: 0;
-    border-right: 1px solid rgba(255,255,255,.2);
     transition: all .5s ease;
 }
 .page-content-right {
@@ -93,37 +209,46 @@ clear: both;
     font-size: 44px;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 .banner-subtitle{
-    font-size: 26px;
-    color: #c8c8c8;
+    font-size: 25px;
+    color: $color-2;
     line-height: 45px;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
 }
 .banner-signature{
-    font-size: 55px;
+    font-size: 60px;
     font-family: $signature-font;
     color: #e8e8e876;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
 }
 .banner-img-title-wrapper{
     padding: 20px 0 10px 0;
 }
-.banner-img-subtitle{
-    font-size: 17px;
-    color: #c8c8c8;
+.banner-img-title{
+    font-size: 18px;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+.banner-img-subtitle {
+	font-size: 20px;
+    color: $color-2;
+    text-align: center;
 }
 .banner-social {
 	display: flex;
-    justify-content: center;
 	flex-wrap: wrap;
 }
 .banner-social-item {
 	margin-right: 18px;
+    padding: 7px;
+    border: 1px solid rgba(170, 170, 170, 0.4352941176);
+    transition: .4s;
+    &:hover{
+        border-color: $main-color;
+    }
 }
 .banner-social-link {
 	display: flex;
@@ -132,18 +257,15 @@ clear: both;
 	flex-wrap: wrap;
 	transition:all 0.4s ease;
     i {
-        font-size: 22px;
-        color: #c8c8c8;
+        font-size: 20px;
+        color: $main-color;
         transition: 0.4s;
-        &:hover{
-            color: $main-color;
-        }
     }
 }
 .banner-alert-text{
     font-size: 18px;
     position: relative;
-    color: #c8c8c8;
+    color: $color-2;
     margin-left: 25px;
     &:hover{
         color: #fff;
@@ -172,6 +294,7 @@ clear: both;
         top: 50%;
         margin-top: -5px;
         display: block;
+        animation: banner-alert-light 1s linear infinite;
     }
 }
 // banner-section css end
