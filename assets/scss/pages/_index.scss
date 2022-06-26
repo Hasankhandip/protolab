@@ -3,12 +3,13 @@
 	position: relative;
 }
 .menu-trigger{
-    position: absolute;
+    position: fixed;
     right: 40px;
     top: 40px;
     display: flex;
     align-items: center;
     color: $color-2;
+    z-index: 1;
     &:hover{
         .menu-bar{
             span{
@@ -45,11 +46,9 @@ span{
     height: 100vh;
     background-color: #14161c;
     z-index: 99;
-    transition: .5s;
-    opacity: 0;
+    transition:all 1s ease;
     &.active{
         right: 0;
-        opacity: 1;
     }
 }
 .navbar-inner {
@@ -117,10 +116,27 @@ span{
 
 // banner-section css start
 .page-content-wrapper{
+    position: relative;
     width: 100%;
     box-sizing: border-box;
     float: left;
-clear: both;
+    clear: both;
+    &::after{
+        content: '';
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100vh;
+        background-color: #14161cdf;
+        transition:all 1s ease;
+        z-index: 1;
+    }
+    &.active{
+        &::after{
+            width: 100%;
+        }
+    }
 }
 .page-content-left{
     width: 40%;
@@ -132,13 +148,27 @@ clear: both;
     left: 0;
     top: 0;
     bottom: 0;
+    border-right: 1px solid rgba(170, 170, 170, 0);
     transition: all .5s ease;
+    &.active{
+        width: 32%;
+        border-right: 1px solid rgba(170, 170, 170, 0.274);
+        .banner-img{
+            height: 450px;
+        }
+        .banner-img-border-1{
+            border-color: $main-color;
+        }
+    }
 }
 .page-content-right {
 	width: 60%;
 	position: absolute;
 	top: 0;
 	right: 0;
+    &.active{
+        width: 68%;
+    }
 }
 .page-content-left-main {
 	padding: 100px 16%;
@@ -165,6 +195,7 @@ clear: both;
     height: 500px;
     object-fit: cover;
     object-position: top center;
+    transition: .5s;
 }
 .banner-img-border-1{
     position: absolute;
@@ -179,25 +210,19 @@ clear: both;
     z-index: -1;
 }
 .banner-img-border-2{
-    position: absolute;
     left: 20px;
     bottom: 0;
     right: 20px;
     top: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #aaaaaa6f;
-    transition: all .5s ease;
-    z-index: -1;
 }
 .banner-section{
     padding: 100px 0;
     display: flex;
     min-height: 100vh;
     align-items: center;
-    .container{
-        padding: 0 12%;
-    }
+}
+.container{
+    padding: 0 12%;
 }
 .banner-top-title{
     font-size: 20px;
@@ -206,8 +231,7 @@ clear: both;
     margin-bottom: 50px;
 }
 .banner-title{
-    font-size: 44px;
-    font-weight: 400;
+    font-size: 52px;
     text-transform: uppercase;
     margin-bottom: 30px;
 }
@@ -298,3 +322,127 @@ clear: both;
     }
 }
 // banner-section css end
+
+// about-section css start
+.about-section{
+    padding: 100px 0 50px 0;
+}
+.section-title-top {
+	font-size: 20px;
+	text-transform: uppercase;
+	color: #03b293;
+	margin-bottom: 30px;
+    font-weight: 500;
+}
+.section-title {
+	font-size: 48px;
+    margin-bottom: 20px;
+}
+.about-table{
+    width: 100%;
+    margin-bottom: 50px;
+    th{
+        font-size: 20px;
+        font-weight: 400;
+        color: $color-2;
+        padding: 10px;
+        &:first-child{
+            color: #fff;
+        }
+        a{
+           color: $color-2;
+           border-bottom: 1px solid #aaaaaa6f;
+           &:hover{
+            border-color:#ffffffa3 ;
+           }
+        }
+    }
+}
+// about-section css end
+
+// service-section css start
+.service-section{
+    padding: 50px 0;
+}
+.service-details-area{
+    margin-top: 50px;
+}
+.service-details-title {
+	font-weight: 400;
+	font-size: 30px;
+    margin-bottom: 15px;
+}
+.service-details-subtitle {
+	font-size: 18px;
+    color: $color-2;
+}
+.service-details-list {
+    display: flex;
+    background: #292b36;
+    margin-bottom: 25px;
+}
+.service-details-left{
+    width: 100%;
+    padding: 30px;
+    border-right: 1px solid rgba(170, 170, 170, 0.274);
+}
+.service-details-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+	width: 40%;
+	padding: 30px;
+}
+.service-details-right-title{
+    color: $main-color;
+    font-size: 26px;
+}
+.service-details-right-subtitle{
+	font-size: 18px;
+    color: $color-2;
+    margin-bottom: 10px;
+}
+// service-section css end
+
+// portfolio-section css start
+.portfolio-section{
+    padding: 50px 0;
+}
+.project-item {
+    height: 100%;
+    background-color: #292b36;
+    transition: 0.4s;
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  .project-img-area {
+    height: 280px;
+  }
+  .project-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .project-details-area {
+    padding: 20px;
+  }
+  .project-info {
+    font-size: 17px;
+    margin-bottom: 5px;
+    color: $main-color;
+  }
+  .project-title {
+    font-size: 22px;
+    color: #fff;
+    &:hover,
+    &:focus {
+      color: #fff !important;
+    }
+  }
+  .portfolio-item-area {
+	margin-top: 50px;
+}
+// portfolio-section css end
