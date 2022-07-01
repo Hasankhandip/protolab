@@ -6,7 +6,7 @@ $('.menu-trigger').on('click', function(){
   $('.navbar-area').addClass('active');
   $('.page-content-wrapper').addClass('active');
 });
-$('.navbar-closer').on('click', function(){
+$('.navbar-closer , .nav-link').on('click', function(){
   $('.navbar-area').removeClass('active');
   $('.page-content-wrapper').removeClass('active');
 });
@@ -20,3 +20,8 @@ $(window).on("scroll", function(){
     $(".page-content-right").removeClass("active");
   }
 });
+// scroll-top btn start
+$(".up-arrow").on("click", function () {
+  $("html, body").animate({ scrollTop: 0 }, 500);
+});
+// scroll-top btn end
